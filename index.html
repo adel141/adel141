@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamed Mohammed Adel | Software Developer</title>
+<meta name="description" content="Portfolio of Hamed Mohammed Adel, CSE student at AIUB building desktop, web, mobile and ML projects.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration-color:var(--red);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:hover{color:var(--red)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.nav a{text-decoration:none}
+.nav a:hover{text-decoration:underline}
+.solid:hover{background:var(--red)!important;border-color:var(--red)!important;color:var(--redink)!important}
+.line:hover,.ghost:hover{background:var(--ink)!important;color:var(--paper)!important}
+.tabbtn:hover{background:var(--grid)}
+.linkrow:hover{background:var(--ink);color:var(--paper)}
+.shot:hover img{opacity:.92}
+.card{transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-3px); box-shadow:5px 5px 0 var(--red)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+.grow{transform-origin:left center;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
+.bar{transform-origin:left center;transform-box:fill-box;animation:grow 1.1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes grow{from{transform:scaleX(.02)}to{transform:scaleX(1)}}
+@keyframes pulseA{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+@keyframes pulseB{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+.pulseA{animation:pulseA .7s .75s ease-out both}
+.pulseB{animation:pulseB .7s .75s ease-out both}
+.cursor{transition:top .7s cubic-bezier(.3,.7,.2,1)}
+@media (prefers-reduced-motion:reduce){.bar,.grow,.pulseA,.pulseB{animation:none}.cursor{transition:none}}
+@media (max-width:760px){.flow{flex-direction:column!important}.link svg{transform:rotate(90deg)}.big{font-size:40px!important}.sat{display:none!important}.side{flex-basis:100%!important;border-right:0!important;border-bottom:1px solid var(--line)}.cursor{display:none!important}}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morphdom/2.7.4/morphdom-umd.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+
+
+<div onMouseMove="{{onSpot}}" style="{{rootStyle}} min-height:100%; background-color:var(--paper); background-image:radial-gradient(380px circle at var(--mx,50%) var(--my,10%), var(--glow), transparent 70%), linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); background-size:100% 100%, 28px 28px, 28px 28px; color:var(--ink); font-family:'Public Sans', system-ui, sans-serif; font-size:16px; line-height:1.6; padding-bottom:48px">
+<div style="max-width:1080px; margin:0 auto; padding:0 24px">
+
+<!-- top bar -->
+<header style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:18px 0; border-bottom:1.5px solid var(--ink)">
+  <a id="top" href="#top" style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.1em; text-transform:uppercase; text-decoration:none">H. M. Adel<span style="color:var(--red)">/</span>software</a>
+  <nav class="nav" aria-label="Sections" style="display:flex; flex-wrap:wrap; align-items:center; gap:6px 20px">
+    <a href="#projects" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Projects</a>
+    <a href="#skills" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Skills</a>
+    <a href="#education" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Education</a>
+    <a href="#certificates" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Certificates</a>
+    <a href="#workshops" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Workshops</a>
+    <a href="#contact" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Contact</a>
+    <button class="ghost" type="button" onClick="{{toggleTheme}}" style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; background:transparent; color:var(--ink); border:1.5px solid var(--ink); padding:10px 12px; min-height:40px; cursor:pointer">{{themeLabel}}</button>
+  </nav>
+</header>
+
+<!-- hero -->
+<section style="display:flex; flex-wrap:wrap; gap:40px; padding:56px 0 48px; align-items:flex-start">
+  <div style="flex:1 1 440px; min-width:0">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Portfolio / Dhaka, Bangladesh</span>
+    <h1 class="big" style="margin:14px 0 0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:104px; text-wrap:balance">Hamed Mohammed <span style="color:var(--red)">Adel</span></h1>
+    <p style="margin:20px 0 0; font-family:'IBM Plex Mono',monospace; font-size:15px">I build <button type="button" onClick="{{nextWord}}" aria-label="Show another thing I build" style="display:inline-block; min-width:15ch; text-align:left; font:600 15px/1.2 'IBM Plex Mono',monospace; background:transparent; color:var(--red); border:0; border-bottom:2px dashed var(--red); padding:6px 2px; min-height:32px; cursor:pointer">{{word}}</button> <span style="color:var(--ink2); font-size:12px">(click me)</span></p>
+    <p style="max-width:52ch; font-size:18px; margin:18px 0 0">I build desktop and web applications in C#, ASP.NET, Java and Python (Django). I study Computer Science and Engineering at AIUB, graduating in May 2027, with coursework in machine learning, natural language processing and computer vision.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:28px">
+      <a class="solid" href="#projects" style="display:inline-block; font:500 12px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:16px 18px; border:1.5px solid var(--ink); background:var(--ink); color:var(--paper)">See the projects</a>
+      <a class="line" href="https://github.com/adel141" target="_blank" rel="noopener" style="display:inline-block; font:500 12px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:16px 18px; border:1.5px solid var(--ink); color:var(--ink)">GitHub / adel141</a>
+    </div>
+  </div>
+
+  <div style="flex:1 1 380px; min-width:0; position:relative; background:var(--sheet); border:1.5px solid var(--ink)">
+    <div aria-label="Terminal showing a short summary of my work" role="img" style="border-bottom:1.5px solid var(--ink); background:var(--ink); color:var(--paper)">
+      <div style="display:flex; align-items:center; gap:10px; padding:0 12px; height:32px; border-bottom:1px solid var(--line)">
+        <span aria-hidden="true" style="display:flex; gap:6px"><span style="width:9px; height:9px; border:1.5px solid var(--paper)"></span><span style="width:9px; height:9px; border:1.5px solid var(--paper)"></span><span style="width:9px; height:9px; background:var(--red); border:1.5px solid var(--red)"></span></span>
+        <span style="flex:1; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; opacity:.75">adel141 / ~</span>
+        <span style="width:40px"></span>
+      </div>
+      <div aria-hidden="true" style="height:176px; overflow:hidden; padding:12px 14px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; line-height:1.55">
+        <template data-sc="for" list="{{term}}" as="l" hint-placeholder-count="8">
+          <div style="white-space:pre-wrap; overflow-wrap:anywhere; color:{{l.color}}; min-height:19px">{{l.t}}</div>
+        </template>
+      </div>
+    </div>
+    <dl style="margin:0; display:grid; grid-template-columns:minmax(0,1fr); gap:1px; background:var(--line)">
+      <div style="background:var(--sheet); display:flex; gap:12px; padding:10px 14px; align-items:baseline"><dt style="flex:0 0 104px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2)">Role</dt><dd style="margin:0; font-size:14.5px; min-width:0">Software developer</dd></div>
+      <div style="background:var(--sheet); display:flex; gap:12px; padding:10px 14px; align-items:baseline"><dt style="flex:0 0 104px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2)">Stack</dt><dd style="margin:0; font-size:14.5px; min-width:0">C#, ASP.NET, Java, Python (Django), SQL Server</dd></div>
+      <div style="background:var(--sheet); display:flex; gap:12px; padding:10px 14px; align-items:baseline"><dt style="flex:0 0 104px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2)">Studying</dt><dd style="margin:0; font-size:14.5px; min-width:0">B.Sc. Computer Science and Engineering, American International University-Bangladesh</dd></div>
+      <div style="background:var(--sheet); display:flex; gap:12px; padding:10px 14px; align-items:baseline"><dt style="flex:0 0 104px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2)">Coursework</dt><dd style="margin:0; font-size:14.5px; min-width:0">Machine Learning, NLP, Computer Vision and Pattern Recognition</dd></div>
+      <div style="background:var(--sheet); display:flex; gap:12px; padding:10px 14px; align-items:baseline"><dt style="flex:0 0 104px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2)">Honours</dt><dd style="margin:0; font-size:14.5px; min-width:0">Dean's Award, three semesters</dd></div>
+      <div style="background:var(--sheet); display:flex; gap:12px; padding:10px 14px; align-items:baseline"><dt style="flex:0 0 104px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2)">Graduation</dt><dd style="margin:0; font-size:14.5px; min-width:0">May 2027 (expected)</dd></div>
+    </dl>
+    <div style="padding:14px 14px 8px; border-top:1.5px solid var(--ink)">
+      <svg viewBox="0 0 480 96" role="img" aria-label="CGPA 3.94 on a scale of 0 to 4.00" style="display:block; width:100%; height:auto">
+        <g style="stroke:var(--ink); stroke-width:1; fill:none">
+          <line x1="20" y1="14" x2="20" y2="46"/><line x1="453.4" y1="14" x2="453.4" y2="46"/><line x1="24" y1="26" x2="449.4" y2="26"/>
+        </g>
+        <polygon points="20,26 30,22 30,30" style="fill:var(--ink)"/>
+        <polygon points="453.4,26 443.4,22 443.4,30" style="fill:var(--ink)"/>
+        <text x="236" y="20" text-anchor="middle" style="font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:500; fill:var(--ink)">CGPA 3.94</text>
+        <rect x="20" y="46" width="440" height="14" style="fill:none; stroke:var(--line); stroke-width:1"/>
+        <rect class="bar" x="20" y="46" width="433.4" height="14" style="fill:var(--red)"/>
+        <g style="stroke:var(--ink); stroke-width:1"><line x1="20" y1="60" x2="20" y2="66"/><line x1="130" y1="60" x2="130" y2="66"/><line x1="240" y1="60" x2="240" y2="66"/><line x1="350" y1="60" x2="350" y2="66"/><line x1="460" y1="60" x2="460" y2="66"/></g>
+        <g text-anchor="middle" style="font-family:'IBM Plex Mono',monospace; font-size:11px; fill:var(--ink2)"><text x="20" y="82">0</text><text x="130" y="82">1</text><text x="240" y="82">2</text><text x="350" y="82">3</text><text x="460" y="82">4.00</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- projects -->
+<section id="projects" style="padding:40px 0; border-top:1.5px solid var(--ink)">
+  <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 24px; margin-bottom:20px">
+    <h2 style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:52px">Projects</h2>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">{{projCount}}</span>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px">
+    <template data-sc="for" list="{{projChips}}" as="c" hint-placeholder-count="4">
+      <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="font:500 12px/1 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; background:{{c.bg}}; color:{{c.fg}}; border:1.5px solid var(--ink); padding:12px 14px; min-height:44px; cursor:pointer">{{c.label}}</button>
+    </template>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap:16px">
+    <template data-sc="for" list="{{cards}}" as="c" hint-placeholder-count="5">
+      <button class="card" type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" onMouseMove="{{c.tilt}}" onMouseLeave="{{c.untilt}}" style="text-align:left; min-width:0; display:grid; align-content:space-between; gap:18px; padding:18px; background:{{c.bg}}; color:{{c.fg}}; border:1.5px solid var(--ink); cursor:pointer; min-height:300px; transition:transform .15s ease-out, box-shadow .2s ease; transform:{{c.lift}}; box-shadow:{{c.shadow}}">
+        <span style="display:grid; gap:10px">
+          <span style="display:flex; justify-content:space-between; align-items:center; gap:8px">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; color:{{c.sub}}">{{c.no}}</span>
+            <span style="font:500 10.5px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; border:1px solid {{c.accent}}; color:{{c.accent}}; padding:4px 7px">{{c.kind}}</span>
+          </span>
+          <span style="font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; font-size:32px; text-transform:uppercase; line-height:.98">{{c.name}}</span>
+          <span style="font-size:14.5px; line-height:1.5; color:{{c.sub}}">{{c.blurb}}</span>
+        </span>
+        <span style="display:grid; gap:12px">
+          <span style="display:flex; flex-wrap:wrap; gap:6px">
+            <template data-sc="for" list="{{c.tags}}" as="t" hint-placeholder-count="3">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; padding:3px 6px; border:1px solid {{c.line}}">{{t.t}}</span>
+            </template>
+          </span>
+          <span style="display:flex; align-items:baseline; gap:10px; padding-top:12px; border-top:1px solid {{c.line}}">
+            <span style="font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; font-size:40px; line-height:1; color:{{c.accent}}">{{c.metric}}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:{{c.sub}}">{{c.metricLabel}}</span>
+          </span>
+        </span>
+      </button>
+    </template>
+  </div>
+
+  <div style="margin-top:16px; border:1.5px solid var(--ink); background:var(--sheet)">
+    <div style="padding:24px; display:grid; gap:26px">
+      <div>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--red)">{{proj.no}} / {{proj.kind}}</span>
+        <h3 style="margin:6px 0 0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:40px">{{proj.title}}</h3>
+        <p style="margin:10px 0 0; max-width:72ch">{{proj.summary}}</p>
+      </div>
+
+      <template data-sc="if" value="{{proj.hasGroups}}" hint-placeholder-val="{{false}}">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap:24px">
+          <template data-sc="for" list="{{proj.groups}}" as="g" hint-placeholder-count="2">
+            <div style="min-width:0; display:grid; gap:8px; align-content:start">
+              <h4 style="margin:0; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2); padding-bottom:6px; border-bottom:1px solid var(--line)">{{g.title}}</h4>
+              <template data-sc="for" list="{{g.rows}}" as="r" hint-placeholder-count="6">
+                <div style="display:flex; align-items:center; gap:10px; font-size:13.5px">
+                  <span style="flex:0 0 120px; min-width:0; overflow-wrap:anywhere">{{r.label}}</span>
+                  <span style="flex:1 1 0; min-width:0; height:12px; background:var(--grid); border:1px solid var(--line)"><span class="grow" style="display:block; height:100%; width:{{r.w}}; background:{{r.color}}"></span></span>
+                  <span style="flex:0 0 56px; text-align:right; font-family:'IBM Plex Mono',monospace; font-size:12px">{{r.value}}</span>
+                </div>
+              </template>
+              <span style="font-size:12px; color:var(--ink2)">{{g.note}}</span>
+            </div>
+          </template>
+        </div>
+      </template>
+
+      <div class="flow" role="group" aria-label="Project structure, left to right" style="display:flex; align-items:stretch">
+        <template data-sc="for" list="{{proj.cols}}" as="col" hint-placeholder-count="4">
+          <div style="display:flex; align-items:stretch; flex:1 1 0; min-width:0">
+            <template data-sc="if" value="{{col.showArrow}}" hint-placeholder-val="{{true}}">
+              <span class="link" aria-hidden="true" style="flex:0 0 34px; display:flex; align-items:center; justify-content:center; color:var(--red)"><svg viewBox="0 0 22 12" style="width:22px; height:12px"><path d="M0 6h19M14 1l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span>
+            </template>
+            <div style="flex:1 1 0; min-width:0; display:grid; gap:8px; align-content:start">
+              <h4 style="margin:0; font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2); padding-bottom:6px; border-bottom:1px solid var(--line)">{{col.h}}</h4>
+              <template data-sc="for" list="{{col.nodes}}" as="n" hint-placeholder-count="4">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; padding:6px 8px; border:1px solid var(--line); background:var(--paper); overflow-wrap:anywhere">{{n.t}}</span>
+              </template>
+            </div>
+          </div>
+        </template>
+      </div>
+      <ul style="margin:0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:8px 32px">
+        <template data-sc="for" list="{{proj.feats}}" as="f" hint-placeholder-count="6">
+          <li style="flex:1 1 360px; min-width:0; position:relative; padding-left:20px; font-size:15px"><span aria-hidden="true" style="position:absolute; left:0; top:.6em; width:8px; height:8px; background:var(--red)"></span>{{f.t}}</li>
+        </template>
+      </ul>
+      <template data-sc="if" value="{{proj.hasRepo}}" hint-placeholder-val="{{true}}">
+        <div style="background:var(--ink); color:var(--paper); padding:10px 12px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; overflow-wrap:anywhere"><span style="background:var(--red); color:var(--redink); padding:0 5px; margin-right:8px">$</span>{{proj.clone}}</div>
+      </template>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:1px; background:var(--line); border-top:1.5px solid var(--ink)">
+      <template data-sc="for" list="{{proj.tb}}" as="r" hint-placeholder-count="5">
+        <div style="flex:1 1 170px; min-width:0; background:var(--sheet); padding:9px 14px"><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); margin-bottom:2px">{{r.k}}</span><span style="font-size:14px; overflow-wrap:anywhere">{{r.v}}</span></div>
+      </template>
+      <template data-sc="if" value="{{proj.hasRepo}}" hint-placeholder-val="{{true}}">
+        <div style="flex:1 1 170px; min-width:0; background:var(--sheet); padding:9px 14px"><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); margin-bottom:2px">Repository</span><a href="{{proj.repo}}" target="_blank" rel="noopener" style="font-size:14px; overflow-wrap:anywhere">{{proj.repoText}}</a></div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- skills -->
+<section id="skills" style="padding:40px 0; border-top:1.5px solid var(--ink)">
+  <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 24px; margin-bottom:20px">
+    <h2 style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:52px">Skills</h2>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Filter by group</span>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px">
+    <template data-sc="for" list="{{skillChips}}" as="c" hint-placeholder-count="7">
+      <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="font:500 12px/1 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; background:{{c.bg}}; color:{{c.fg}}; border:1.5px solid var(--ink); padding:12px 14px; min-height:44px; cursor:pointer">{{c.label}}</button>
+    </template>
+  </div>
+  <div style="overflow-x:auto; border:1.5px solid var(--ink); background:var(--sheet)">
+    <table style="border-collapse:collapse; width:100%; min-width:560px; font-size:14.5px">
+      <thead><tr>
+        <th style="text-align:left; font:500 11px/1.2 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); padding:10px 14px; border-bottom:1.5px solid var(--ink)">Group</th>
+        <th style="text-align:left; font:500 11px/1.2 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); padding:10px 14px; border-bottom:1.5px solid var(--ink)">Skill</th>
+        <th style="text-align:left; font:500 11px/1.2 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); padding:10px 14px; border-bottom:1.5px solid var(--ink)">Where it was used</th>
+      </tr></thead>
+      <tbody>
+        <template data-sc="for" list="{{skillRows}}" as="s" hint-placeholder-count="8">
+          <tr>
+            <td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink2); white-space:nowrap">{{s.grp}}</td>
+            <td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top">{{s.skill}}</td>
+            <td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top">{{s.where}}</td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- education -->
+<section id="education" style="padding:40px 0; border-top:1.5px solid var(--ink)">
+  <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 24px; margin-bottom:24px">
+    <h2 style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:52px">Education</h2>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Revision history, oldest first</span>
+  </div>
+  <div style="overflow-x:auto; border:1.5px solid var(--ink); background:var(--sheet)">
+    <table style="border-collapse:collapse; width:100%; min-width:560px; font-size:14.5px">
+      <thead><tr>
+        <th style="text-align:left; font:500 11px/1.2 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); padding:10px 14px; border-bottom:1.5px solid var(--ink)">Rev</th>
+        <th style="text-align:left; font:500 11px/1.2 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); padding:10px 14px; border-bottom:1.5px solid var(--ink)">Date</th>
+        <th style="text-align:left; font:500 11px/1.2 'IBM Plex Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); padding:10px 14px; border-bottom:1.5px solid var(--ink)">Description</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; width:56px; font-family:'IBM Plex Mono',monospace; color:var(--red); font-weight:500">A</td><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; font-family:'IBM Plex Mono',monospace; font-size:13px; white-space:nowrap">2017</td><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top">Junior School Certificate, Chattogram Ideal High School. GPA 5.00 / 5.00</td></tr>
+        <tr><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; width:56px; font-family:'IBM Plex Mono',monospace; color:var(--red); font-weight:500">B</td><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; font-family:'IBM Plex Mono',monospace; font-size:13px; white-space:nowrap">2020</td><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top">Secondary School Certificate, Science, Govt. Muslim High School, Chattogram. GPA 5.00 / 5.00</td></tr>
+        <tr><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; width:56px; font-family:'IBM Plex Mono',monospace; color:var(--red); font-weight:500">C</td><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; font-family:'IBM Plex Mono',monospace; font-size:13px; white-space:nowrap">2022</td><td style="padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top">Higher Secondary Certificate, Science, Govt. Collegiate College, Chattogram. GPA 5.00 / 5.00</td></tr>
+        <tr><td style="padding:10px 14px; vertical-align:top; width:56px; font-family:'IBM Plex Mono',monospace; color:var(--red); font-weight:500">D</td><td style="padding:10px 14px; vertical-align:top; font-family:'IBM Plex Mono',monospace; font-size:13px; white-space:nowrap">May 2027</td><td style="padding:10px 14px; vertical-align:top">B.Sc. in Computer Science and Engineering, American International University-Bangladesh. CGPA 3.94 / 4.00 <span style="display:inline-block; font:500 10.5px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--red); color:var(--red); padding:3px 6px; margin-left:8px">Expected</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin:14px 0 0; font-size:14px; color:var(--ink2); max-width:70ch">AIUB coursework: ASP.NET, Natural Language Processing, Machine Learning, Computer Vision and Pattern Recognition, Object-Oriented Programming I (Java) and II (C#), Web Technologies. Certificates are in the Education tab below.</p>
+</section>
+
+<!-- certificates -->
+<section id="certificates" style="padding:40px 0; border-top:1.5px solid var(--ink)">
+  <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 24px; margin-bottom:24px">
+    <h2 style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:52px">Certificates</h2>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Select an image to open it full size</span>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; border:1.5px solid var(--ink); border-bottom:0; background:var(--sheet)">
+    <template data-sc="for" list="{{certTabs}}" as="t" hint-placeholder-count="4">
+      <button class="tabbtn" type="button" aria-pressed="{{t.pressed}}" onClick="{{t.pick}}" style="flex:1 1 200px; min-width:0; text-align:left; background:{{t.bg}}; color:{{t.fg}}; border:0; border-right:1px solid var(--line); padding:14px 16px; min-height:44px; cursor:pointer; display:grid; gap:4px">
+        <span style="font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; font-size:24px; text-transform:uppercase; line-height:1">{{t.name}}</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:{{t.sub}}">{{t.count}}</span>
+      </button>
+    </template>
+  </div>
+  <div style="border:1.5px solid var(--ink); background:var(--sheet); padding:20px">
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(min(420px, 100%), 1fr)); gap:20px; align-items:start">
+      <template data-sc="for" list="{{certItems}}" as="c" hint-placeholder-count="4">
+        <article style="min-width:0; border:1.5px solid var(--ink); background:var(--sheet); display:grid; align-content:start">
+          <template data-sc="if" value="{{c.hasImg}}" hint-placeholder-val="{{true}}">
+            <a class="shot" href="{{c.img}}" target="_blank" rel="noopener" aria-label="Open {{c.title}} certificate full size" style="display:block; border-bottom:1.5px solid var(--ink); background:#ffffff">
+              <img src="{{c.img}}" alt="{{c.alt}}" style="display:block; width:100%; max-width:100%; height:auto">
+            </a>
+          </template>
+          <template data-sc="if" value="{{c.noImg}}" hint-placeholder-val="{{false}}">
+            <div role="img" aria-label="No image added for this certificate yet" style="aspect-ratio:1.414 / 1; max-width:100%; border-bottom:1.5px dashed var(--line); background:var(--paper); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:16px">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2)">Certificate image</span>
+              <span style="font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; font-size:28px; text-transform:uppercase; line-height:1">{{c.title}}</span>
+              <span style="font-size:13px; color:var(--ink2)">[ADD CERTIFICATE IMAGE]</span>
+            </div>
+          </template>
+          <div style="padding:14px 16px; display:grid; gap:10px">
+            <div>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">{{c.kind}}</span>
+              <h3 style="margin:4px 0 0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:1; font-size:26px">{{c.title}}</h3>
+            </div>
+            <div style="display:grid; gap:4px">
+              <template data-sc="for" list="{{c.lines}}" as="l" hint-placeholder-count="3">
+                <div style="display:flex; flex-wrap:wrap; gap:2px 12px; font-size:13.5px"><span style="flex:0 0 112px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink2); padding-top:2px">{{l.k}}</span><span style="flex:1 1 180px; min-width:0; overflow-wrap:anywhere">{{l.v}}</span></div>
+              </template>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center">
+              <template data-sc="if" value="{{c.hasVerify}}" hint-placeholder-val="{{false}}">
+                <a href="{{c.verify}}" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase">Verify certificate</a>
+              </template>
+              <template data-sc="if" value="{{c.hasSN}}" hint-placeholder-val="{{false}}">
+                <button class="ghost" type="button" onClick="{{c.copySN}}" style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; background:transparent; color:var(--ink); border:1px solid var(--ink); padding:12px; min-height:44px; cursor:pointer">Copy serial number</button>
+              </template>
+            </div>
+          </div>
+        </article>
+      </template>
+    </div>
+    <p role="status" aria-live="polite" style="margin:14px 0 0; min-height:22px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; color:var(--ink2)">{{copied}}</p>
+    <template data-sc="if" value="{{certNote.show}}" hint-placeholder-val="{{false}}">
+      <p style="margin:6px 0 0; font-size:13.5px; color:var(--ink2); max-width:70ch">{{certNote.text}}</p>
+    </template>
+  </div>
+</section>
+
+<!-- workshops -->
+<section id="workshops" style="padding:40px 0; border-top:1.5px solid var(--ink)">
+  <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 24px; margin-bottom:20px">
+    <h2 style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:52px">Workshops and seminars</h2>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Newest first</span>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px">
+    <template data-sc="for" list="{{wsChips}}" as="c" hint-placeholder-count="3">
+      <button type="button" aria-pressed="{{c.pressed}}" onClick="{{c.pick}}" style="font:500 12px/1 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; background:{{c.bg}}; color:{{c.fg}}; border:1.5px solid var(--ink); padding:12px 14px; min-height:44px; cursor:pointer">{{c.label}}</button>
+    </template>
+  </div>
+  <div style="border:1.5px solid var(--ink); background:var(--sheet)">
+    <template data-sc="for" list="{{wsItems}}" as="w" hint-placeholder-count="4">
+      <div style="display:flex; flex-wrap:wrap; gap:6px 24px; padding:16px 18px; border-bottom:1px solid var(--line)">
+        <div style="flex:0 0 110px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--red); font-weight:500">{{w.when}}</div>
+        <div style="flex:1 1 320px; min-width:0">
+          <div style="font-weight:600">{{w.title}}</div>
+          <div style="font-size:14px; color:var(--ink2)">{{w.by}}</div>
+        </div>
+        <div style="flex:0 0 auto"><span style="display:inline-block; font:500 10.5px/1 'IBM Plex Mono',monospace; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--ink); padding:4px 7px">{{w.kind}}</span></div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- contact -->
+<section id="contact" style="padding:40px 0; border-top:1.5px solid var(--ink)">
+  <div style="display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px 24px; margin-bottom:24px">
+    <h2 style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:52px">Contact</h2>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Dhaka, UTC+6</span>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:32px; align-items:flex-start">
+    <div style="flex:1.2 1 400px; min-width:0">
+      <p class="big" style="margin:0; font-family:'Big Shoulders Display','Arial Narrow',sans-serif; font-weight:800; text-transform:uppercase; line-height:.95; font-size:60px; text-wrap:balance">Hiring for a developer role or internship? Write to me.</p>
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin-top:22px">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:15px; overflow-wrap:anywhere; user-select:all">hamedmohammedadel@gmail.com</span>
+        <button class="ghost" type="button" onClick="{{copyMail}}" style="font:500 11px/1 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; background:transparent; color:var(--ink); border:1px solid var(--ink); padding:12px 12px; min-height:44px; cursor:pointer">Copy address</button>
+      </div>
+    </div>
+    <ul style="flex:1 1 320px; min-width:0; margin:0; padding:0; list-style:none; border:1.5px solid var(--ink); background:var(--sheet)">
+      <li style="border-bottom:1px solid var(--line)"><a class="linkrow" href="https://github.com/adel141" target="_blank" rel="noopener" style="display:flex; justify-content:space-between; gap:12px; padding:16px; text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:13px; overflow-wrap:anywhere"><span>GitHub</span><span>github.com/adel141</span></a></li>
+      <li><a class="linkrow" href="https://www.linkedin.com/in/hamed-mohammed-adel/" target="_blank" rel="noopener" style="display:flex; justify-content:space-between; gap:12px; padding:16px; text-decoration:none; font-family:'IBM Plex Mono',monospace; font-size:13px; overflow-wrap:anywhere"><span>LinkedIn</span><span>hamed-mohammed-adel</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<footer style="margin-top:24px; border:1.5px solid var(--ink); display:flex; flex-wrap:wrap; gap:1px; background:var(--line)">
+  <div style="flex:1 1 200px; background:var(--sheet); padding:9px 14px"><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Drawn by</span><span style="font-size:14px">Hamed Mohammed Adel</span></div>
+  <div style="flex:1 1 200px; background:var(--sheet); padding:9px 14px"><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Discipline</span><span style="font-size:14px">Software development</span></div>
+  <div style="flex:1 1 200px; background:var(--sheet); padding:9px 14px"><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Sheet</span><span style="font-size:14px">1 of 1</span></div>
+  <div style="flex:1 1 200px; background:var(--sheet); padding:9px 14px"><span style="display:block; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2)">Revision</span><span style="font-size:14px">November 2026</span></div>
+</footer>
+
+</div>
+</div>
+</template>
+<script>
+(function(){
+var VOID={img:1,br:1,hr:1,input:1,link:1,meta:1};
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function escA(t){return String(t).replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
+function look(path,scope){var parts=path.trim().split('.');var v=parts[0] in scope?scope[parts[0]]:undefined;for(var i=1;i<parts.length&&v!=null;i++)v=v[parts[i]];return v;}
+var handlers={},hid=0;
+function interp(str,scope){return str.replace(/\{\{([^}]+)\}\}/g,function(_,e){var v=look(e,scope);return v==null?'':String(v);});}
+function single(str){var m=/^\s*\{\{([^}]+)\}\}\s*$/.exec(str);return m?m[1]:null;}
+function walk(node,scope){
+  if(node.nodeType===3)return esc(interp(node.nodeValue,scope));
+  if(node.nodeType!==1)return '';
+  var tag=node.tagName.toLowerCase(),out='';
+  if(tag==='template'){
+    var kind=node.getAttribute('data-sc');
+    var kids=Array.prototype.slice.call(node.content.childNodes);
+    if(kind==='for'){
+      var list=look(single(node.getAttribute('list')),scope)||[],as=node.getAttribute('as');
+      list.forEach(function(item){var sc=Object.create(scope);sc[as]=item;kids.forEach(function(k){out+=walk(k,sc);});});
+    } else if(kind==='if'){
+      if(look(single(node.getAttribute('value')),scope))kids.forEach(function(k){out+=walk(k,scope);});
+    }
+    return out;
+  }
+  var attrs='';
+  Array.prototype.forEach.call(node.attributes,function(a){
+    var n=a.name;
+    if(n.indexOf('hint-')===0)return;
+    if(/^on/.test(n)&&single(a.value)){var fn=look(single(a.value),scope);if(typeof fn==='function'){var id=++hid;handlers[id]=fn;attrs+=' data-h-'+n.slice(2).toLowerCase()+'="'+id+'"';}return;}
+    attrs+=' '+n+'="'+escA(interp(a.value,scope))+'"';
+  });
+  out='<'+tag+attrs+'>';
+  if(VOID[tag])return out;
+  Array.prototype.forEach.call(node.childNodes,function(k){out+=walk(k,scope);});
+  return out+'</'+tag+'>';
+}
+var tplEl=document.getElementById('tpl'),root=document.getElementById('app');
+var VARS=['--mx','--my','--rx','--ry'];
+function DCLogic(props){this.props=props||{};}
+DCLogic.prototype.setState=function(p){Object.assign(this.state,p);schedule();};
+window.DCLogic=DCLogic;
+var inst,queued=false;
+function schedule(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;draw();});}
+function draw(){
+  handlers={};hid=0;
+  var html='';Array.prototype.forEach.call(tplEl.content.childNodes,function(k){html+=walk(k,inst.renderVals());});
+  var next=document.createElement('div');next.id='app';next.innerHTML=html;
+  morphdom(root,next,{onBeforeElUpdated:function(from,to){
+    VARS.forEach(function(v){var x=from.style&&from.style.getPropertyValue(v);if(x)to.style.setProperty(v,x);});
+    return true;}});
+}
+['click','mousemove'].forEach(function(ev){root.addEventListener(ev,function(e){
+  var el=e.target.closest('[data-h-'+ev+']');if(!el)return;
+  var fn=handlers[el.getAttribute('data-h-'+ev)];
+  if(fn)fn({currentTarget:el,target:e.target,clientX:e.clientX,clientY:e.clientY,preventDefault:function(){e.preventDefault();}});
+});});
+root.addEventListener('mouseout',function(e){
+  var el=e.target.closest('[data-h-mouseleave]');if(!el||el.contains(e.relatedTarget))return;
+  var fn=handlers[el.getAttribute('data-h-mouseleave')];if(fn)fn({currentTarget:el,target:e.target});
+});
+window.__start=function(C){inst=new C({theme:'light'});draw();if(inst.componentDidMount)inst.componentDidMount();};
+})();
+</script>
+<script>
+
+var PROJECTS = [
+  {
+    name: 'Prescription YOLO', kind: 'AI and ML', title: 'Automated Prescription Analysis with YOLO',
+    blurb: 'Detects medicine names on prescription photos and maps them to the companies that make them.',
+    tags: ['YOLO', 'Python', 'MedEx data'], metric: '0.87', metricLabel: 'mAP@0.5',
+    summary: 'A Machine Learning course research project. A YOLO object detector reads medicine names straight from prescription images, with no OCR. The detections are mapped to manufacturers using data scraped from MedEx Bangladesh, which shows which pharmaceutical companies dominate prescriptions.',
+    groups: [
+      { title: 'Final-epoch metrics', note: 'Bars start at 50%.', min: 50, max: 100, fmt: 'pct', rows: [['Precision', 83.6], ['Recall', 83.7], ['mAP@0.5', 87.0]] },
+      { title: 'Detection score, top companies', note: 'Higher is more detections. Unmatched names were grouped as Unknown (score 412) and are left out.', min: 0, max: 340, fmt: 'int', rows: [['Square', 328], ['Incepta', 300], ['Opsonin', 228], ['Beximco', 218], ['Aristopharma', 207]] }
+    ],
+    cols: [
+      { h: 'Data', n: ['893 prescription images', '1,445 medicine classes', 'YOLO-format labels'] },
+      { h: 'Model', n: ['YOLO detector', 'Train 622 images', 'Validate 176 images', 'Test 95 images'] },
+      { h: 'Mapping', n: ['MedEx Bangladesh scrape', 'String matching', 'Unmatched = Unknown'] },
+      { h: 'Analysis', n: ['Count-based score', 'Confidence-weighted score', 'Market share chart'] }
+    ],
+    feats: ['Detects medicine names directly, which avoids OCR trouble with handwriting', 'Maps detected brands to manufacturers using scraped MedEx data', 'Square (11.0%) and Incepta (10.1%) came out as the market leaders', 'Notes the limits: 1,445 classes is a hard problem and name mismatches cannot be fixed after detection'],
+    tb: [['Type', 'Research paper, group project'], ['Course', 'Machine Learning, AIUB'], ['Team', 'Hamed Mohammed Adel, Eva Jahan, Zifanur Rahman, Shaikat Das Joy'], ['Metrics', 'Precision 0.836, Recall 0.837']],
+    repo: '', repoText: '', clone: ''
+  },
+  {
+    name: 'Authorship Attribution', kind: 'AI and ML', title: 'Authorship Attribution with NLP',
+    blurb: 'Works out who wrote a text, comparing classical NLP, BERT, RoBERTa and a stacked ensemble.',
+    tags: ['BERT', 'RoBERTa', 'scikit-learn'], metric: '69.7%', metricLabel: 'best accuracy, 50 authors',
+    summary: 'Group 09 project for Natural Language Processing (Summer 2025-2026), in two parts. The midterm built a classical pipeline with Naive Bayes, Logistic Regression and SVM. The final fine-tuned BERT and RoBERTa across an 8-setting grid and combined them in a stacked ensemble. My part was the RoBERTa experiments, the results visualization and the final comparison.',
+    groups: [
+      { title: 'Reuters 50-50 (50 authors), test accuracy', note: 'Bars start at 50%. Best: RoBERTa.', min: 50, max: 100, fmt: 'pct', rows: [['Naive Bayes', 65.44], ['Logistic Reg.', 67.40], ['SVM', 66.96], ['BERT', 68.13], ['RoBERTa', 69.73], ['Ensemble', 69.33]] },
+      { title: 'Spooky Author (3 authors), test accuracy', note: 'Bars start at 50%. Best: Naive Bayes, with the ensemble close behind.', min: 50, max: 100, fmt: 'pct', rows: [['Naive Bayes', 83.68], ['Logistic Reg.', 81.69], ['SVM', 81.92], ['BERT', 81.10], ['RoBERTa', 79.02], ['Ensemble', 83.52]] }
+    ],
+    cols: [
+      { h: 'Preprocessing', n: ['Tokenization', 'Case folding', 'Lemmatization', 'Stop words and punctuation'] },
+      { h: 'Classical', n: ['Bag-of-Words', 'TF-IDF', 'Naive Bayes', 'Logistic Regression', 'Linear SVM'] },
+      { h: 'Transformers', n: ['bert-base-uncased', 'roberta-base', '8-setting grid', 'Early stopping'] },
+      { h: 'Ensemble', n: ['Softmax probabilities', 'Logistic Regression meta-learner'] }
+    ],
+    feats: ['Two datasets: Reuters 50-50 with 50 authors and Spooky Author with 3 (Poe, Lovecraft, Shelley)', 'Grid over learning rate, batch size and weight decay, with a 70/15/15 stratified split', 'Transformers helped most on the hard 50-class task; a simple Bag-of-Words model held up on the easy 3-class task', 'The write-up explains why, including preprocessing that strips the style cues transformers use'],
+    tb: [['Type', 'Course project, Group 09'], ['Course', 'Natural Language Processing, AIUB'], ['Team', 'Eva Jahan, Hamed Mohammed Adel, Touhid Ahmed Antu, Abdullah Farhan'], ['Tools', 'Python, NLTK, spaCy, scikit-learn, Hugging Face']],
+    repo: '', repoText: '', clone: ''
+  },
+  {
+    name: 'Job Portal', kind: 'Web', title: 'Job Portal: Web Technologies Project',
+    blurb: 'A PHP and MySQL job portal where seekers, employers, recruiters and admins each get their own workspace.',
+    tags: ['PHP', 'MySQL', 'AJAX'], metric: '4', metricLabel: 'roles, 14 tables',
+    summary: 'A full-stack job portal for the Web Technologies course, built in PHP with an MVC structure on a MySQL database. Job seekers search and apply, employers post jobs and review applicants, recruiters run a hiring pipeline for their clients, and admins moderate the whole site.',
+    groups: [],
+    cols: [
+      { h: 'Roles', n: ['Job Seeker', 'Employer', 'Recruiter', 'Admin'] },
+      { h: 'Controllers', n: ['AuthController', 'SeekerController', 'EmployerController', 'RecruiterController', 'AdminController', 'MessageController', 'ApiController'] },
+      { h: 'Front end', n: ['HTML and CSS views', 'JavaScript', 'AJAX endpoints', 'Route table'] },
+      { h: 'MySQL tables', n: ['users', 'jobs', 'applications', 'saved_jobs', 'job_alerts', 'messages', 'complaints', 'categories'] }
+    ],
+    feats: ['Registration and login with separate dashboards for seekers, employers, recruiters and admins', 'Seekers: job search, applications, saved jobs, job alerts, notifications, messages and complaints', 'Employers: post and manage jobs, review and shortlist applicants, analytics, messaging', 'Recruiters: client list, outreach, application pipeline and analytics', 'Admins: approve or reject users, manage categories and featured jobs, resolve complaints, site analytics', 'MVC layout with models, controllers and views, and mysqli with error reporting'],
+    tb: [['Language', 'PHP, JavaScript, HTML, CSS'], ['Database', 'MySQL (mysqli)'], ['Pattern', 'MVC with AJAX endpoints'], ['Course', 'Web Technologies, AIUB'], ['Tables', 'users, jobs, applications and 11 more']],
+    repo: 'https://github.com/adel141/webtech_project', repoText: 'github.com/adel141/webtech_project', clone: 'git clone https://github.com/adel141/webtech_project.git'
+  },
+  {
+    name: 'Nogor Nojor', kind: 'Mobile', title: 'Nogor Nojor: Civic Issue Reporting App',
+    blurb: 'A Flutter app for reporting local public problems in Bangladesh and tracking them until they are solved. In progress.',
+    tags: ['Flutter', 'Dart', 'Riverpod'], metric: 'Flutter', metricLabel: 'in progress',
+    summary: 'A mobile-first civic platform where citizens report problems such as broken roads, blocked drains, garbage, streetlights and waterlogging, and admins and workers move each report through review, assignment and resolution. The Flutter app is in early development: the app shell, routing and the splash and sign-in screens are built, and the report, map and admin features are planned.',
+    groups: [],
+    cols: [
+      { h: 'Roles', n: ['Citizen', 'Admin', 'Worker'] },
+      { h: 'App built so far', n: ['App shell', 'go_router routing', 'Splash screen', 'Sign-in screen widgets'] },
+      { h: 'Planned features', n: ['Report with photo and location', 'Map of nearby reports', 'Upvotes and comments', 'Admin and worker dashboards'] },
+      { h: 'Planned backend', n: ['Firebase Authentication', 'Cloud Firestore', 'Firebase Storage', 'Cloud Messaging'] }
+    ],
+    feats: ['Report status flow: Submitted, Under Review, Assigned, In Progress, Solved, Closed', 'Eight problem categories, with Bengali labels', 'Feature-based folder structure with Riverpod for state and go_router for navigation', 'A planned Next.js admin panel alongside the mobile app'],
+    tb: [['Framework', 'Flutter, Dart'], ['State and routing', 'Riverpod, go_router'], ['Status', 'In development'], ['Targets', 'Android, web, Windows, Linux']],
+    repo: 'https://github.com/adel141/Nogor-Nojor', repoText: 'github.com/adel141/Nogor-Nojor', clone: 'git clone https://github.com/adel141/Nogor-Nojor.git'
+  },
+  {
+    name: 'Zero Hunger API', kind: 'Web', title: 'ZeroHunger: Food Collection API',
+    blurb: 'An ASP.NET Core Web API that connects restaurants with surplus food to the staff who collect it.',
+    tags: ['ASP.NET Core', 'EF Core', 'SQL Server'], metric: '5', metricLabel: 'REST controllers',
+    summary: 'A Web API for a zero-hunger platform. Restaurants list surplus food and raise collection requests, and employees are assigned to collect it and update the status. It is built in three layers: the API, a business layer with services and AutoMapper, and a data layer with repositories on Entity Framework Core.',
+    groups: [],
+    cols: [
+      { h: 'API controllers', n: ['Restaurants', 'FoodItems', 'FoodCollectionRequests', 'Employees', 'Assignments'] },
+      { h: 'Business layer', n: ['Services', 'Models', 'AutoMapper profile'] },
+      { h: 'Data layer', n: ['Repositories', 'EF Core DbContext', 'Entities'] },
+      { h: 'Database', n: ['SQL Server'] }
+    ],
+    feats: ['CRUD endpoints for restaurants, food items, employees and collection requests', 'Collection requests by restaurant, and assignments by employee or request', 'Status updates on requests and assignments through PUT endpoints', 'Separate API, BLL and DAL projects in one solution'],
+    tb: [['Language', 'C#'], ['Framework', 'ASP.NET Core Web API'], ['Data access', 'Entity Framework Core'], ['Database', 'SQL Server'], ['Pattern', 'Three-layer, repository and service']],
+    repo: 'https://github.com/adel141/ZeroHungerSol', repoText: 'github.com/adel141/ZeroHungerSol', clone: 'git clone https://github.com/adel141/ZeroHungerSol.git'
+  },
+  {
+    name: 'PlanPro', kind: 'Desktop', title: 'PlanPro: Event Management System',
+    blurb: 'Organizers create events, book venues and collect feedback, with a dashboard for each role.',
+    tags: ['C#', 'WinForms', 'SQL Server'], metric: '4', metricLabel: 'user roles',
+    summary: "An event management system for AIUB's Object-Oriented Programming II course. Each of the four roles gets its own dashboard.",
+    groups: [],
+    cols: [
+      { h: 'Roles', n: ['Admin', 'Organizer', 'Attendee', 'Venue Manager'] },
+      { h: 'Windows Forms screens', n: ['Login', 'Registration', 'Dashboards', 'Event Registration', 'Feedback', 'Manage Profile'] },
+      { h: 'Data access', n: ['ADO.NET', 'SqlConnection', 'SqlCommand', 'SqlDataAdapter'] },
+      { h: 'SQL Server tables', n: ['UserTB', 'EventTB', 'VenueInfo', 'Registration', 'Feedback', 'Payment'] }
+    ],
+    feats: ['Registration and login with role-based dashboards', 'Event creation and management', 'Venue booking and scheduling', 'Attendee registration and feedback', 'Sponsor management and notifications', 'Normalized schema with foreign keys for referential integrity'],
+    tb: [['Language', 'C#, .NET Framework'], ['Interface', 'Windows Forms, Siticone UI'], ['Database', 'Microsoft SQL Server'], ['Course', 'AIUB OOP2, Fall 2024-2025']],
+    repo: 'https://github.com/adel141/PlanPro', repoText: 'github.com/adel141/PlanPro', clone: 'git clone https://github.com/adel141/PlanPro.git'
+  },
+  {
+    name: 'TravelMatrix', kind: 'Desktop', title: 'TravelMatrix: Travel Agency Management',
+    blurb: 'Admins manage packages and users, and travellers browse and pay for packages.',
+    tags: ['Java', 'Swing', 'File storage'], metric: '6', metricLabel: 'screens',
+    summary: "A travel agency management system for AIUB's Object-Oriented Programming I course.",
+    groups: [],
+    cols: [
+      { h: 'Roles', n: ['Admin', 'User'] },
+      { h: 'Swing screens', n: ['Login', 'Registration', 'Admin Dashboard', 'User Dashboard', 'Forgot Password', 'Payment'] },
+      { h: 'Classes', n: ['User', 'TrPackage', 'Package operations', 'User operations', 'ILoginOperation'] },
+      { h: 'Storage', n: ['userdata.txt', 'packagedata.txt'] }
+    ],
+    feats: ['Create, read, update and delete for travel packages', 'User management: add, edit, remove, search', 'Separate admin and user dashboards', 'Password recovery and payment screens', 'Inheritance, encapsulation, polymorphism and interfaces', 'File-based persistence in plain text files'],
+    tb: [['Language', 'Java'], ['Interface', 'Java Swing'], ['Storage', 'Local text files'], ['Course', 'AIUB OOP1, Summer 2023-2024']],
+    repo: 'https://github.com/adel141/TravelMatrix', repoText: 'github.com/adel141/TravelMatrix', clone: 'git clone https://github.com/adel141/TravelMatrix.git'
+  },
+  {
+    name: 'EDGE Django', kind: 'Web', title: 'EDGE Django Final Project',
+    blurb: 'A blog application and a personal portfolio site, built for the Python (Django) training.',
+    tags: ['Python', 'Django'], metric: '2', metricLabel: 'Django apps',
+    summary: 'The final project for the EDGE Python (Django) training.',
+    groups: [],
+    cols: [{ h: 'Framework', n: ['Python', 'Django'] }, { h: 'Applications', n: ['Blog', 'Personal Portfolio'] }],
+    feats: ['Blog application built with Django', 'Personal portfolio website built with Django', 'Completed for the EDGE Python (Django) certificate'],
+    tb: [['Language', 'Python'], ['Framework', 'Django'], ['Programme', 'EDGE, Bangladesh Computer Council'], ['Certificate', 'EDGE-DSTS-123-9139-00019']],
+    repo: 'https://github.com/adel141/EDGE_Django_Final_Project', repoText: 'github.com/adel141/EDGE_Django_Final_Project', clone: 'git clone https://github.com/adel141/EDGE_Django_Final_Project.git'
+  }
+];
+
+var WORDS = ['desktop apps in C#', 'Django websites', 'NLP models', 'YOLO detectors', 'things that run'];
+var TERM = '$ whoami\nhamed-adel, CSE student at AIUB\n$ git log --oneline -3\na41c9e2 Prescription YOLO: mAP 0.87\n7be03d1 Authorship NLP: RoBERTa 69.7%\nc9f5a10 PlanPro: role dashboards\n$ cgpa --show\n3.94 / 4.00 (expected May 2027)';
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { wi: 0, tpos: 0, dark: null, proj: 0, pf: 'All', skill: 'All', ctab: 0, ws: 'All', copied: '' };
+  }
+
+  componentDidMount() {
+    var self = this;
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce) { this.setState({ auto: false, tpos: TERM.length }); return; }
+    this.wordTimer = setInterval(function () { self.setState({ wi: self.state.wi + 1 }); }, 2600);
+    this.typer = setInterval(function () {
+      var t = self.state.tpos;
+      if (t < TERM.length) self.setState({ tpos: t + 1 });
+      else if (t < TERM.length + 90) self.setState({ tpos: t + 1 });
+      else self.setState({ tpos: 0 });
+    }, 45);
+
+  }
+
+  componentWillUnmount() {
+    if (this.timer) clearInterval(this.timer);
+    if (this.typer) clearInterval(this.typer);
+    if (this.wordTimer) clearInterval(this.wordTimer);
+  }
+
+  copy(text) {
+    var self = this;
+    var fail = function () { self.setState({ copied: 'Select the text and copy it' }); };
+    try {
+      navigator.clipboard.writeText(text).then(function () { self.setState({ copied: 'Copied' }); }, fail);
+    } catch (e) { fail(); }
+    setTimeout(function () { self.setState({ copied: '' }); }, 2200);
+  }
+
+  renderVals() {
+    var s = this.state;
+    var self = this;
+    var dark = s.dark === null ? this.props.theme === 'dark' : s.dark;
+    var T = dark
+      ? { paper: '#0a1f3a', sheet: '#0e2a4d', ink: '#e3edf8', ink2: '#9fb8d2', line: '#36618f', grid: '#12335a', red: '#ff8576', redink: '#0a1f3a', glow: 'rgba(255,133,118,.16)' }
+      : { paper: '#f1f4f8', sheet: '#fbfcfd', ink: '#12243a', ink2: '#455a72', line: '#b3c2d3', grid: '#e1e8f0', red: '#c42f2b', redink: '#ffffff', glow: 'rgba(196,47,43,.10)' };
+    var rootStyle = '--paper:' + T.paper + ';--sheet:' + T.sheet + ';--ink:' + T.ink + ';--ink2:' + T.ink2 + ';--line:' + T.line + ';--grid:' + T.grid + ';--red:' + T.red + ';--redink:' + T.redink + ';--glow:' + T.glow + ';';
+
+    /* projects */
+    var KINDS = ['All', 'AI and ML', 'Web', 'Mobile', 'Desktop'];
+    var projChips = KINDS.map(function (g) {
+      var on = s.pf === g;
+      return { label: g, pressed: on, bg: on ? T.ink : 'transparent', fg: on ? T.paper : T.ink, pick: function () { self.setState({ pf: g }); } };
+    });
+    var cards = [];
+    PROJECTS.forEach(function (x, i) {
+      if (s.pf !== 'All' && x.kind !== s.pf) return;
+      var on = i === s.proj;
+      cards.push({
+        no: 'P' + (i < 9 ? '0' : '') + (i + 1), kind: x.kind, name: x.name, blurb: x.blurb, metric: x.metric, metricLabel: x.metricLabel,
+        tags: x.tags.map(function (t) { return { t: t }; }), pressed: on,
+        bg: on ? T.ink : T.sheet, fg: on ? T.paper : T.ink, sub: on ? T.paper : T.ink2, line: on ? T.paper : T.line,
+        accent: on ? T.paper : T.red, lift: 'perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))' + (on ? ' translateY(-3px)' : ''),
+        tilt: function (e) { try { var el = e.currentTarget, r = el.getBoundingClientRect(); var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5; el.style.setProperty('--ry', (px * 9).toFixed(1) + 'deg'); el.style.setProperty('--rx', (-py * 9).toFixed(1) + 'deg'); } catch (x) {} },
+        untilt: function (e) { try { e.currentTarget.style.setProperty('--rx', '0deg'); e.currentTarget.style.setProperty('--ry', '0deg'); } catch (x) {} }, shadow: on ? '6px 6px 0 ' + T.red : 'none',
+        pick: function () { self.setState({ proj: i }); }
+      });
+    });
+    var p = PROJECTS[s.proj];
+    var proj = {
+      no: 'P' + (s.proj < 9 ? '0' : '') + (s.proj + 1), kind: p.kind, title: p.title, summary: p.summary,
+      repo: p.repo, repoText: p.repoText, clone: p.clone, hasRepo: p.repo !== '',
+      hasGroups: p.groups.length > 0,
+      groups: p.groups.map(function (g) {
+        var best = 0;
+        g.rows.forEach(function (r) { if (r[1] > best) best = r[1]; });
+        return { title: g.title, note: g.note, rows: g.rows.map(function (r) {
+          var w = Math.max(2, Math.min(100, (r[1] - g.min) / (g.max - g.min) * 100));
+          return { label: r[0], w: w.toFixed(1) + '%', color: r[1] === best ? T.red : T.ink2, value: g.fmt === 'pct' ? r[1].toFixed(1) + '%' : String(r[1]) };
+        }) };
+      }),
+      cols: p.cols.map(function (c, i) { return { h: c.h, showArrow: i > 0, nodes: c.n.map(function (t) { return { t: t }; }) }; }),
+      feats: p.feats.map(function (t) { return { t: t }; }),
+      tb: p.tb.map(function (r) { return { k: r[0], v: r[1] }; })
+    };
+
+    /* skills */
+    var skills = [
+      ['Languages', 'C#', 'PlanPro'], ['Languages', 'Java', 'TravelMatrix'], ['Languages', 'Python', 'EDGE Django final project'], ['Languages', 'SQL', 'PlanPro database schema'], ['Languages', 'JavaScript, HTML, CSS, PHP', 'Job Portal, Web Technologies course'], ['Languages', 'Dart', 'Nogor Nojor'],
+      ['Frameworks', 'ASP.NET', 'AIUB course and Ostad course'], ['Frameworks', 'Django', 'EDGE Django final project'], ['Frameworks', '.NET Framework, Windows Forms', 'PlanPro'], ['Frameworks', 'ASP.NET Core Web API, Entity Framework Core', 'ZeroHunger API'], ['Frameworks', 'Flutter, Dart, Riverpod', 'Nogor Nojor'],
+      ['Data', 'Microsoft SQL Server, SSMS', 'PlanPro'],
+      ['AI and ML', 'Machine Learning, NLP, Computer Vision and Pattern Recognition', 'AIUB coursework'],
+      ['Tools', 'Git, GitHub, Visual Studio, VS Code, NetBeans, IntelliJ IDEA', 'All projects'],
+      ['Design', 'Adobe Photoshop, Adobe Illustrator', 'Interface assets and graphics']
+    ];
+    var groups = ['All', 'Languages', 'Frameworks', 'Data', 'AI and ML', 'Tools', 'Design'];
+    var skillChips = groups.map(function (g) {
+      var on = s.skill === g;
+      return { label: g, pressed: on, bg: on ? T.ink : 'transparent', fg: on ? T.paper : T.ink, pick: function () { self.setState({ skill: g }); } };
+    });
+    var skillRows = skills.filter(function (r) { return s.skill === 'All' || r[0] === s.skill; }).map(function (r) { return { grp: r[0], skill: r[1], where: r[2] }; });
+
+    /* certificates, grouped into tabs */
+    var GP = 'Grameenphone Academy';
+    var CERT_TABS = [
+      { name: 'Grameenphone', note: '', items: [
+        { title: 'AI-Powered Communication', kind: 'Certificate of Excellence', img: 'img/gp-ai.jpg', alt: 'Certificate of Excellence for AI-Powered Communication, Grameenphone Academy',
+          lines: [['Issuer', GP], ['Completed', '22 June 2026']], verify: 'https://www.grameenphone.academy/cert/adc92946fc59' },
+        { title: 'Build Your Future Before Graduation', kind: 'Certificate of Excellence', img: 'img/gp-build.jpg', alt: 'Certificate of Excellence for Build Your Future Before Graduation, Grameenphone Academy',
+          lines: [['Issuer', GP], ['Completed', '28 September 2026']], verify: 'https://www.grameenphone.academy/cert/57ef7bc08ef4' },
+        { title: 'Turn Ideas into Impact', kind: 'Certificate of Excellence', img: 'img/gp-turn.jpg', alt: 'Certificate of Excellence for Turn Ideas into Impact, Grameenphone Academy',
+          lines: [['Issuer', GP], ['Completed', '1 November 2026']], verify: 'https://www.grameenphone.academy/cert/5ff5bc75ea6e' },
+        { title: 'Impactful Presentations', kind: 'Certificate of Excellence', img: 'img/gp-impact.jpg', alt: 'Certificate of Excellence for Impactful Presentations, Grameenphone Academy',
+          lines: [['Issuer', GP], ['Completed', '5 November 2026']], verify: 'https://www.grameenphone.academy/cert/6c101d152e33' }
+      ] },
+      { name: 'Volunteer', note: '', items: [
+        { title: 'Volunteer, ICCA 2024', kind: 'Certificate of Appreciation', img: 'img/icca.jpg', alt: 'Certificate of Appreciation for volunteering at ICCA 2024, American International University-Bangladesh',
+          lines: [['Event', '3rd International Conference on Computing Advancements (ICCA 2024)'], ['Host', 'American International University-Bangladesh, Department of Computer Science'], ['Dates', '17 to 18 October 2024'], ['Signed by', 'Prof. Dr. Dip Nandi (Program Chair) and Prof. Dr. Khandaker Tabin Hasan (Conference Chair)']], verify: '' }
+      ] },
+      { name: 'Education', note: 'On the school board certificates, the names of parents and the date of birth are blacked out.', items: [
+        { title: "Dean's List Honors", kind: 'Academic honour', img: 'img/dean-list.jpg', alt: "Dean's List Honors certificate for Fall 2024-2025 from American International University-Bangladesh",
+          lines: [['Issuer', 'AIUB, Faculty of Science and Technology'], ['Semester', 'Fall 2024-2025'], ['GPA that semester', '3.96'], ['Dated', '26 June 2025']], verify: '' },
+        { title: 'Junior School Certificate', kind: 'Board certificate', img: 'img/jsc.jpg', alt: 'Junior School Certificate 2017, Board of Intermediate and Secondary Education, Chittagong, personal details blacked out',
+          lines: [['Board', 'Chittagong'], ['Examination', '2017'], ['GPA', '5.00 / 5.00'], ['Result published', '30 December 2017']], verify: '' },
+        { title: 'Secondary School Certificate', kind: 'Board certificate', img: 'img/ssc.jpg', alt: 'Secondary School Certificate 2020, Board of Intermediate and Secondary Education, Chattogram, personal details blacked out',
+          lines: [['Board', 'Chattogram'], ['Examination', '2020, Science group'], ['GPA', '5.00 / 5.00'], ['Result published', '31 May 2020']], verify: '' },
+        { title: 'Higher Secondary Certificate', kind: 'Board certificate', img: 'img/hsc.jpg', alt: 'Higher Secondary Certificate 2022, Board of Intermediate and Secondary Education, Chattogram, personal details blacked out',
+          lines: [['Board', 'Chattogram'], ['Examination', '2022, Science group'], ['GPA', '5.00 / 5.00'], ['Result published', '8 February 2023']], verify: '' }
+      ] },
+      { name: 'Training', note: '', items: [
+        { title: 'Python (Django)', kind: 'Technical training', img: 'img/django.jpg', alt: 'Python (Django) training certificate from the EDGE Project of Bangladesh Computer Council',
+          lines: [['Issuer', 'Enhancing Digital Government and Economy (EDGE) Project, Bangladesh Computer Council, ICT Division'], ['Conducted by', 'Institute of Information Technology, Jahangirnagar University'], ['Duration', 'Dec 2024 to Jan 2025, 80 hours'], ['Issued', '21 January 2025'], ['Serial No.', 'EDGE-DSTS-123-9139-00019']], verify: '', sn: 'EDGE-DSTS-123-9139-00019' },
+        { title: 'ASP.NET', kind: 'Technical training', img: '', alt: '',
+          lines: [['Issuer', 'Ostad (ostad.com)'], ['Status', 'Course completed']], verify: '' }
+      ] }
+    ];
+    var ct = Math.min(s.ctab, CERT_TABS.length - 1);
+    var certTabs = CERT_TABS.map(function (t, i) {
+      var on = i === ct;
+      return { name: t.name, count: t.items.length + (t.items.length === 1 ? ' certificate' : ' certificates'), pressed: on,
+        bg: on ? T.ink : 'transparent', fg: on ? T.paper : T.ink, sub: on ? T.paper : T.ink2,
+        pick: function () { self.setState({ ctab: i, copied: '' }); } };
+    });
+    var certItems = CERT_TABS[ct].items.map(function (c) {
+      return {
+        title: c.title, kind: c.kind, img: c.img, alt: c.alt, hasImg: c.img !== '', noImg: c.img === '',
+        lines: c.lines.map(function (l) { return { k: l[0], v: l[1] }; }),
+        hasVerify: c.verify !== '', verify: c.verify,
+        hasSN: !!c.sn, copySN: function () { self.copy(c.sn); }
+      };
+    });
+    var certNote = { show: CERT_TABS[ct].note !== '', text: CERT_TABS[ct].note };
+
+    /* workshops */
+    var workshops = [
+      { when: 'Oct 2025', title: 'Mastering the Edit: Techniques for Creative Storytelling', by: 'Workshop organized by AIUB Computer Club, AIUB', kind: 'Design and media', group: 'Design and media' },
+      { when: 'Jun 2024', title: 'Career Pathways: Industry Insights for Aspiring Software Engineers', by: 'Workshop conducted by Asif Bin Abedin, AIUB', kind: 'Software and research', group: 'Software and research' },
+      { when: 'Jun 2024', title: 'First Steps in Research: Research Paper Writing for Beginners', by: 'Workshop conducted by Md. Saef Ullah Miah, AIUB', kind: 'Software and research', group: 'Software and research' },
+      { when: 'Dec 2023', title: 'From Novice to Designer: Photoshop and Illustrator Essentials', by: 'Seminar conducted by Sayeed Hasan, AIUB', kind: 'Design and media', group: 'Design and media' }
+    ];
+    var wsGroups = ['All', 'Software and research', 'Design and media'];
+    var wsChips = wsGroups.map(function (g) {
+      var on = s.ws === g;
+      return { label: g, pressed: on, bg: on ? T.ink : 'transparent', fg: on ? T.paper : T.ink, pick: function () { self.setState({ ws: g }); } };
+    });
+    var wsItems = workshops.filter(function (w) { return s.ws === 'All' || w.group === s.ws; });
+
+    var shown = TERM.slice(0, Math.min(s.tpos, TERM.length)).split('\n');
+    var term = shown.map(function (t, i) {
+      var cmd = t.charAt(0) === '$';
+      var last = i === shown.length - 1 && s.tpos < TERM.length + 90;
+      return { t: t + (last ? '▌' : ''), color: cmd ? T.paper : T.line };
+    });
+    return {
+      term: term,
+      rootStyle: rootStyle,
+      onSpot: function (e) { try { var r = e.currentTarget.getBoundingClientRect(); e.currentTarget.style.setProperty('--mx', (e.clientX - r.left) + 'px'); e.currentTarget.style.setProperty('--my', (e.clientY - r.top) + 'px'); } catch (x) {} },
+      word: WORDS[s.wi % WORDS.length],
+      nextWord: function () { self.setState({ wi: s.wi + 1 }); },
+      themeLabel: dark ? 'Light theme' : 'Dark theme',
+      toggleTheme: function () { self.setState({ dark: !dark }); },
+      projChips: projChips, cards: cards, proj: proj, projCount: PROJECTS.length + ' projects / ' + cards.length + ' shown',
+      skillChips: skillChips, skillRows: skillRows,
+      certTabs: certTabs, certItems: certItems, certNote: certNote, copied: s.copied,
+      copyMail: function () { self.copy('hamedmohammedadel@gmail.com'); },
+      wsChips: wsChips, wsItems: wsItems
+    };
+  }
+}
+
+window.__start(Component);
+</script>
+</body>
+</html>
