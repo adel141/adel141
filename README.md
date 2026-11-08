@@ -54,7 +54,7 @@ I build desktop, web and mobile apps, and I train ML models when the problem nee
 | Project | What it is | Stack |
 |---|---|---|
 | 💊 **Prescription Analysis with YOLO** | Research paper. Detects medicine names on prescription photos and maps them to manufacturers. **0.87 mAP@0.5** on 893 images and 1,445 classes. | Python, YOLO |
-| ✍️ **Authorship Attribution (NLP)** | Who wrote this text? Classical models vs fine-tuned BERT and RoBERTa vs a stacked ensemble. **69.7%** best accuracy on 50 authors. | Python, NLTK, scikit-learn, Hugging Face |
+| ✍️[ **Authorship Attribution (NLP)**](https://github.com/adel141/NLP_Authorship_Identification) | Who wrote this text? Classical models vs fine-tuned BERT and RoBERTa vs a stacked ensemble. **69.7%** best accuracy on 50 authors. | Python, NLTK, scikit-learn, Hugging Face |
 | 💼 [**Job Portal**](https://github.com/adel141/webtech_project) | Full-stack job portal with four roles: seeker, employer, recruiter and admin. MVC, AJAX, 14 MySQL tables. | PHP, MySQL, JavaScript |
 | 🏙️ [**Nogor Nojor**](https://github.com/adel141/Nogor-Nojor) | Civic issue reporting app for Bangladesh. *In development.* | Flutter, Dart, Riverpod |
 | 🍽️ [**ZeroHunger API**](https://github.com/adel141/ZeroHungerSol) | Web API linking restaurants' surplus food with collection staff. Three-layer architecture. | ASP.NET Core, EF Core, SQL Server |
